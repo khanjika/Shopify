@@ -22,7 +22,7 @@ class SearchBar extends Component {
         if (searchWordLength > 3) {
             axios
                 .get(
-                    `http://www.omdbapi.com/?i=tt3896198&apikey=6f0dde1c&s=${this.state.searchTerm}&type=movie`
+                    `https://www.omdbapi.com/?i=tt3896198&apikey=6f0dde1c&s=${this.state.searchTerm}&type=movie`
                 )
                 .then(res => res.data)
                 .then(res => {
