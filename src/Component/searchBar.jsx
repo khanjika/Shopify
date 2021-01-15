@@ -3,6 +3,8 @@ import './searchBar.css';
 import Card from './card.jsx'
 import NominatedMovies from './nomination.jsx'
 import Banner from 'react-js-banner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilm } from "@fortawesome/free-solid-svg-icons";
 const axios = require('axios');
 
 class SearchBar extends Component {
@@ -33,7 +35,6 @@ class SearchBar extends Component {
                     this.setState({
                         moviesList: res.Search
                     });
-                    this.setState({ message: '' })
                 });
             setTimeout(() => {
                 if (this.state.moviesList.length === 0 && searchWordLength >= 3) {
@@ -48,7 +49,7 @@ class SearchBar extends Component {
         this.setState({ searchTerm: event.target.value });
 
         if (srchText.length <= 3) {
-            this.setState({ message: "Please enter more than three characters" });
+            this.setState({ message: "Please enter atleast four characters" });
             this.setState({ moviesList: [] });
         } else {
             this.setState({ message: "" });
@@ -136,11 +137,11 @@ class SearchBar extends Component {
     render() {
         return (
             <div>
-                <div className="input-group mb-1">
-                    <span>Movie Title</span>
-                    <i className="fas fa-video"></i>
+                <div className="icon-container" style={{ width: "calc(20%)", paddingLeft: "12%" }}>
+                    <FontAwesomeIcon icon={faFilm} />
+                    <span style={{ paddingLeft: "3%" }}>Movie Title</span>
                 </div>
-                <div className="input-group mb-3">
+                <div className="input-group">
                     <input type="text" className="form-control" placeholder="Search.." onChange={this.handleChange} onKeyUp={this.handleKeyPress.bind(this)} />
                     <div className="input-group-append">
                         <button className="btn btn-primary" type="button" onClick={this.searchMovie}>Button</button>
@@ -157,7 +158,7 @@ class SearchBar extends Component {
                         {this.nominationCard()}
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }
