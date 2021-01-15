@@ -35,6 +35,7 @@ class SearchBar extends Component {
                     this.setState({
                         moviesList: res.Search
                     });
+                    this.setState({ message: '' })
                 });
             setTimeout(() => {
                 if (this.state.moviesList.length === 0 && searchWordLength >= 3) {
