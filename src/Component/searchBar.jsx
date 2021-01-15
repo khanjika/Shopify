@@ -151,7 +151,7 @@ class SearchBar extends Component {
                 <div className="message" style={{ color: "red", fontWeight: "bold" }}>
                     {this.state.message}
                 </div>
-                <div className="container">
+                <div className="container" style={{ marginTop: "2%" }}>
                     <div className="row" style={{ width: "calc(95%)" }}>
                         <div className="col-lg-6 mb-4">
                             {this.displaySearchResults()}
